@@ -109,6 +109,12 @@ _NOTE:_ If you don't want to use the `--port` parameter with every command you c
 ~$ export CC_SERIAL=/dev/ttyS0
 ```
 
+## Troubleshooting
+
+You wired everything up, you double-checked that your pin assignments are correct and you are still not able to flash your device? Then try the following:
+* Try using 50k/100k resistors instead of 100k/200k. [#27](https://github.com/wavesoft/CCLib/issues/27)
+* Try to check if voltage at expected level, e.g. if you disconnect `CC_DD_O` from the Arduino and connect to a 5V power rail instead, you should read about 3.3V at `DD`. If not – probably you have wrong wiring or bad resistors. 
+
 ## Compatibility Table
 
 In order to flash a CCxxxx chip there is a need to invoke CPU instructions, which makes the process cpu-dependant. This means that this code cannot be reused off-the-shelf for other CCxxxx chips. The following table lists the chips reported to work (or could work) with this library:
@@ -130,7 +136,7 @@ In order to flash a CCxxxx chip there is a need to invoke CPU instructions, whic
         <td>CC2531</td>
         <td><strong>0xb5</strong>..</td>
         <td>CC254X</td>
-        <td>:large_orange_diamond: Looking for testers</td>
+        <td>:white_check_mark: Works with 50k/100k resistors</td>
     </tr>
     <tr>
         <td>CC2533</td>
@@ -148,7 +154,7 @@ In order to flash a CCxxxx chip there is a need to invoke CPU instructions, whic
         <td>CC2541</td>
         <td><strong>0x41</strong>..</td>
         <td>CC254X</td>
-        <td>:large_orange_diamond: Looking for testers</td>
+        <td>:white_check_mark: Works with 50k/100k resistors</td>
     </tr>
     <tr>
         <td>CS2510</td>
