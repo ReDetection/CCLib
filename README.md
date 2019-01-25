@@ -65,20 +65,6 @@ Device information:
            PC : 002f
 ```
 
-However, if you see something like this, something is wrong and you should probably check your wiring and/or reset the arduino board or the CC board.
-
-```
-Chip information:
-      Chip ID : 0x4113
-   Flash size : 16 Kb
-    SRAM size : 1 Kb
-          USB : No
-
-Device information:
- IEEE Address : 000000000000
-           PC : 0000
-```
-
 ### 3. Using the software
 
 The python utilities provide a straightforward interface for reading/writing to your CCxxxx chip:
