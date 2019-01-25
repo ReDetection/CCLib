@@ -113,7 +113,9 @@ _NOTE:_ If you don't want to use the `--port` parameter with every command you c
 
 You wired everything up, you double-checked that your pin assignments are correct and you are still not able to flash your device? Then try the following:
 * Try using 50k/100k resistors instead of 100k/200k. [#27](https://github.com/wavesoft/CCLib/issues/27)
-* Try to check if voltage at expected level, e.g. if you disconnect `CC_DD_O` from the Arduino and connect to a 5V power rail instead, you should read about 3.3V at `DD`. If not – probably you have wrong wiring or bad resistors. 
+* Try to check if voltage at expected level, e.g. if you disconnect `CC_DD_O` from the Arduino and connect to a 5V power rail instead, you should read about 3.3V at `DD`. If not – probably you have wrong wiring or bad resistors.
+* If `cc_info.py` tool reports `DEBUG_LOCKED` flag, you will have to erase chip during flashing. Put the `--erase` option. [#29](https://github.com/wavesoft/CCLib/issues/29)
+* If flashing begins but stops with a message `Progress 0%...  ERROR: Could not read from the serial port!` – try to lower down the baudrate to 9600: in the Arduino file around [line 94](https://github.com/wavesoft/CCLib/blob/13ebd0878a8a691d1336b96609eb44d535021964/Arduino/CCLib/Examples/CCLib_proxy/CCLib_proxy.ino#L94), in the Python [ccproxy.py around line 85](https://github.com/wavesoft/CCLib/blob/13ebd0878a8a691d1336b96609eb44d535021964/Python/cclib/ccproxy.py#L85) replace to `self.ser = serial.Serial(port, baudrate=9600, timeout=3.0, write_timeout=3.0)`. 
 
 ## Compatibility Table
 
